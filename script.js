@@ -1,4 +1,4 @@
-const text = document.getElementsByClassName('items')[0];
+// const text = document.getElementsByClassName('items')[0];
 
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
@@ -18,16 +18,35 @@ function createCustomElement(element, className, innerText) {
 //   text.appendChild(createCustomElement('p', 'loading', 'carregando...'));
 // };
 // loading();
-function createProductItemElement({ sku, name, image }) {
+
+function cartItemClickListener(event) {
+  event.target.remove();
+}
+
+function createCartItemElement({ sku, name, salePrice }) {
+  const li = document.createElement('li');
+  li.className = 'cart__item';
+  li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
+  li.addEventListener('click', cartItemClickListener);
+  return li;
+}
+
+const cartItens = ({ sku, name, image, salePrice }) => {
+  const pai = document.querySelector('.cart__items');
+  const cart = createCartItemElement({ sku, name, image, salePrice });
+  pai.appendChild(cart);
+};
+function createProductItemElement({ sku, name, image, salePrice }) {
   const section = document.createElement('section');
   section.className = 'item';
 
+  section.appendChild(createProductImageElement(image));
   section.appendChild(createCustomElement('span', 'item__sku', sku));
   section.appendChild(createCustomElement('span', 'item__title', name));
-  section.appendChild(createProductImageElement(image));
+  section.appendChild(createCustomElement('span', 'item__price', salePrice));
   const botão = (createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
   section.appendChild(botão);
-  botão.addEventListener('click', () => console.log('oi'));
+  botão.addEventListener('click', () => cartItens({ sku, name, image, salePrice }));
   return section;
 }
 
@@ -41,27 +60,15 @@ const itens = async () => {
       sku: product[1].id, 
       name: product[1].title,
       image: product[1].thumbnail,
+      salePrice: product[1].price,
     });
-      // console.log(product);
       sectionItens.appendChild(novo);
-    });
+  });
 };
 itens();
 
 // function getSkuFromProductItem(item) {
 //   return item.querySelector('span.item__sku').innerText;
-// }
-
-// function cartItemClickListener(event) {
-//   // coloque seu código aqui
-// }
-
-// function createCartItemElement({ sku, name, salePrice }) {
-//   const li = document.createElement('li');
-//   li.className = 'cart__item';
-//   li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
-//   li.addEventListener('click', cartItemClickListener);
-//   return li;
 // }
 
 window.onload = () => {
