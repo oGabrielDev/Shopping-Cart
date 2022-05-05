@@ -42,7 +42,7 @@ const cartItens = ({ sku, name, image, salePrice }) => {
   const pegarLocal = getSavedCartItems();
   // console.log(pegarLocal);
   if (pegarLocal !== null) {
-    saveCartItems([{ sku, name, image, salePrice }, ...pegarLocal]);
+    saveCartItems([...pegarLocal, { sku, name, image, salePrice }]);
   } else {
     saveCartItems([{ sku, name, image, salePrice }]);
   }
