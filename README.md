@@ -1,13 +1,26 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+<h1 align="center">Shopping Cart</h1>
+<hr>
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+<h2>Projeto desenvolvido para exercitar os conhecimentos em HTML, CSS e Javascript</h2>
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+<hr>
+
+<h1>Habilidades Praticadas</h1>
+
+<ul>
+  <li>Conhecimentos de HTML, JavaScript e CSS3</li>
+  <li>Fazer requisições a API do Mercado Livre</li>
+  <li>Utilização de funções assícronas</li>
+</ul>
+
+<hr>
+
+<h1>Descrição do Projeto</h1>
+
+<h3>Projeto realizado para consumir a API do Mercado livre, Utilizando somento um rota para requisição, a rota que foi consumida foi de "Computadores". </h3>
+
+<h1>Prévia</h1>
+
+<img src="/asserts/review.gif">
+
+<hr>
