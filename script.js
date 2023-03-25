@@ -1,13 +1,9 @@
 const pai = document.querySelector('.cart__items');
-const totalPrice = document.createElement('p');
-totalPrice.classList.add('total-price');
+const totalPrice = document.querySelector('.total-price');
 const products = document.querySelector('.items');
-
 const sumValues = () => {
   let result = 0;
   const items = document.querySelectorAll('.cart__item');
-  const section = document.querySelector('.cart');
-  section.appendChild(totalPrice);
   items.forEach((item) => {
     const product = item.innerText.split('$');
     result += parseFloat(product[1]);
@@ -15,7 +11,7 @@ const sumValues = () => {
   if (items.length === 0) {
     result += 0;
   }
-  totalPrice.innerText = `R$ ${result}`;
+  totalPrice.innerText = result.toFixed(2);
 };
 
 function createProductImageElement(imageSource) {
@@ -67,8 +63,10 @@ const cartItens = ({ sku, name, image, salePrice }) => {
   const pegarLocal = getSavedCartItems();
   if (pegarLocal !== null) {
     saveCartItems([...pegarLocal, { sku, name, image, salePrice }]);
+    sumValues();
   } else {
     saveCartItems([{ sku, name, image, salePrice }]);
+    sumValues();
   }
 };
 function createProductItemElement({ sku, name, image, salePrice }) {
@@ -98,8 +96,7 @@ const itens = async () => {
       salePrice: product[1].price,
     });
       sectionItens.appendChild(novo);
-      sumValues();
-  });
+    });
 };
 itens();
 
