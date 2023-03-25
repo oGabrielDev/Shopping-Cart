@@ -115,7 +115,9 @@ window.onload = () => {
   if (load !== null) {
     load.forEach((element) => {
       const cart = createCartItemElement(element);
+      console.log(cart);
       pai.appendChild(cart);
     });
   }
+  sumValues();
 };
